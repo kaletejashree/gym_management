@@ -1,0 +1,65 @@
+<div class="container mt-4">
+    <!-- Attendance Form Card -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Add Attendance</h5>
+        <form (ngSubmit)="addAttendance()" #attendanceForm="ngForm">
+            <div class="row">
+          <div class="mb-3 col-lg-4">
+            <label for="member" class="form-label">Select Member</label>
+            <select id="member" name="member" [(ngModel)]="selectedMember" required class="form-control">
+              <option *ngFor="let member of members" [value]="member.name">{{ member.name }}</option>
+            </select>
+          </div>
+          
+          <div class="mb-3 col-lg-4">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" id="date" name="date" [(ngModel)]="attendanceDate" required class="form-control">
+          </div>
+          
+          <div class="mb-3 col-lg-4">
+            <label for="status" class="form-label">Status</label>
+            <select id="status" name="status" [(ngModel)]="attendanceStatus" required class="form-control">
+              <option value="Present">Present</option>
+              <option value="Absent">Absent</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Add Attendance</button>
+        </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Attendance List Card -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Attendance List</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Member</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let attendance of attendances; let i = index">
+              <td>{{ attendance.member }}</td>
+              <td>{{ attendance.date | date }}</td>
+              <td>
+                <button [ngClass]="{'btn-success': attendance.status === 'Present', 'btn-danger': attendance.status === 'Absent'}" class="btn btn-sm">
+                  {{ attendance.status }}
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteAttendance(i)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

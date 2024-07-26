@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    
+    <form>
+        <div class="heading text-center">
+            <h3>Login Form</h3>
+        </div>
+       
+        <div class="from-group">
+           <label for="username">Username</label>
+           <input type="text" required name="username" class="form-control" [(ngModel)]="userObj.username">
+        </div>
+        <div class="from-group">
+            <label for="password">Password</label>
+            <input type="password" required name="password" class="form-control" [(ngModel)]="userObj.password">
+        </div>
+        <div class="from-group last">
+            <button type="submit" class="btn btn-success" (click)="onLogin()">Submit</button>
+            <button class="btn btn-danger">Cancel</button>
+        </div>
+        <div class="from-group">
+            <p><a href="#">Forgot Password</a></p>
+            <p><a href="#">Alredy Have Account ?<span>Sign Up</span> </a></p>
+        </div>
+        
+    </form>
+
+</div>

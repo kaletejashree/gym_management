@@ -1,0 +1,146 @@
+/* General Styles */
+.img {
+    background-image: url('../../../assets/workout.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;  
+    height: 500px;  
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+    overflow: hidden;
+    margin-left: 100px;  
+}
+
+.row {
+    margin-left: 100px;
+}
+
+.card1, .card2, .card3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+}
+
+/* Responsive Sizes */
+.card1, .card2, .card3 {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.card-logo {
+    width: 60px;  /* Adjust the size of the logo */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Card Background Colors */
+.card1 {
+    background-color: aqua;
+}
+
+.card2 {
+    background-color: rgb(197, 26, 146);
+}
+
+.card3 {
+    background-color: rgb(255, 0, 85);
+}
+
+/* Bar Graph Styles */
+.bar-container {
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.category {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+    margin-right: 10px;
+    
+}
+
+.bar {
+    display: inline-block;
+    border-radius: 5px;
+    height: 40px;
+    background-color: #64b2d1; /* Default color, can be changed per category */
+    width: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.bar::after {
+    content: attr(data-percentage);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes show-bar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.bar-container:nth-child(1) .bar {
+    background-color: #64b2d1; /* Running */
+    animation: show-bar 1.2s ease-out forwards;
+    animation-delay: 0.1s;
+}
+
+.bar-container:nth-child(2) .bar {
+    background-color: #5292ac; /* Walking */
+    animation: show-bar 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.bar-container:nth-child(3) .bar {
+    background-color: #407286; /* Weight */
+    animation: show-bar 1.2s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.bar-container .bar {
+    transition: width 1.2s ease-out;
+}
+
+.bar-container .category {
+    color: #333;
+}
+.icon-container i{
+    font-size: 50px;
+    margin-left: 10px;
+}
+
+.carousel-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #3e3f3f;
+    color: white;
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+}
+.carousel-indicators [data-bs-target] {
+    background-color: #007bff;
+}
+

@@ -1,0 +1,57 @@
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background-color: #343a40; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Ensure main content doesn't overlap sidebar */
+  .main-content {
+    margin-left: 280px; 
+    padding-top: 60px; 
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    height: 60px;
+    padding: 0 20px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .btn-outline-light {
+    color: #fff;
+    border-color: #fff;
+  }
+  
+  .btn-outline-light:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    .main-content {
+      margin-left: 0;
+      padding-top: 60px; /* Adjust if needed */
+    }
+  }
+
+  .search-bar {
+    width: 500px;
+}

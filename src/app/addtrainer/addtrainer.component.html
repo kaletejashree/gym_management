@@ -1,0 +1,64 @@
+<div class="container mt-4">
+    <div class="row">
+      <!-- Trainer Form Card -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header">
+            <h2>Add New Trainer</h2>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="onSubmit()" #trainerForm="ngForm" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="trainerName" class="form-label">Name</label>
+                <input type="text" id="trainerName" name="name" [(ngModel)]="newTrainer.name" required class="form-control">
+              </div>
+  
+              <div class="mb-3">
+                <label for="specialty" class="form-label">Specialty</label>
+                <input type="text" id="specialty" name="specialty" [(ngModel)]="newTrainer.specialty" required class="form-control">
+              </div>
+  
+              <div class="mb-3">
+                <label for="trainerPhoto" class="form-label">Photo</label>
+                <input type="file" id="trainerPhoto" name="photo" (change)="onFileChange($event)" required class="form-control">
+              </div>
+  
+              <button type="submit" class="btn btn-primary">Add Trainer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Trainer List Card -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header">
+            <h2>Trainer List</h2>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Specialty</th>
+                  <th>Photo</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let trainer of trainers; let i = index">
+                  <td>{{ trainer.name }}</td>
+                  <td>{{ trainer.specialty }}</td>
+                  <td><img [src]="trainer.photo" alt="{{ trainer.name }}" class="img-thumbnail" width="100"></td>
+                  <td>
+                    <button class="btn btn-danger btn-sm" (click)="deleteTrainer(i)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
